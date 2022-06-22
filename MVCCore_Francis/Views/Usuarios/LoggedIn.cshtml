@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@{
+    ViewData["Title"] = "LoggedIn";
+}
+
+@if(@TempData["Nivel"] == null || @TempData["Desc"] == null)
+{
+    <h1>Aun no has realizado tu test para conocer tu nivel de ansiedad.</h1>
+    <h1>Toma ahora tu test <a href="/Cuestionarios/Cuestionario">Aqui</a></h1>
+    
+
+}
+else
+{
+    <h1>@TempData["Nivel"].ToString()</h1>
+    <h1>@TempData["Desc"].ToString()</h1>
+    
+}
+
+
+@if (@Context.Session.GetString("Id") != null) 
+
+{
+    <h4>Hello @Context.Session.GetString("Nombre").ToString()</h4>
+}
+
+<h1>LoggedIn</h1>
+
+<h2>Bitacora de sentimientos <a asp-controller="Historials" asp-action="Index">aqui</a></h2>
+<br /> <br />
+<h2>Cuentanos tus recomendaciones personales <a asp-controller="Recomendacions" asp-action="Create">aqui</a></h2>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVCCore_Francis.Models.Cuestionario>
+
+@{
+    ViewData["Title"] = "Cuestionario";
+    
+}
+
+<h1>Cuestionario para saber tu Nivel de Ansiedad</h1>
+
+<div class="row">
+    <form asp-action="Cuestionario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+@foreach (var item in Model) {
+            
+        <div class="form-group">
+            <input type="hidden" name=@Html.DisplayFor(modelItem=> item.CuestionarioID) value=@Html.DisplayFor(modelItem=> item.CuestionarioID) >
+            <legend>@Html.DisplayFor(ItemModel => item.Pregunta)</legend>
+
+            <div>
+                <input type="radio" id="nunca_@Html.DisplayFor(modelItem=> item.CuestionarioID)" name="Opcion_@Html.DisplayFor(modelItem=> item.CuestionarioID)" value="@Html.DisplayFor(ItemModel => item.Opcion1)">
+                <label for="Opcion1">@Html.DisplayFor(ItemModel => item.Opcion1)</label>
+            </div>
+
+            <div>
+                <input type="radio" id="enalgunaocacion_@Html.DisplayFor(modelItem=> item.CuestionarioID)" name="Opcion_@Html.DisplayFor(modelItem=> item.CuestionarioID)" value="@Html.DisplayFor(ItemModel => item.Opcion2)">
+                <label for="Opcion2">@Html.DisplayFor(ItemModel => item.Opcion2)</label>
+            </div>
+
+            <div>
+                <input type="radio" id="amenudo_@Html.DisplayFor(modelItem=> item.CuestionarioID)" name="Opcion_@Html.DisplayFor(modelItem=> item.CuestionarioID)" value="@Html.DisplayFor(ItemModel => item.Opcion3)">
+                <label for="Opcion3">@Html.DisplayFor(ItemModel => item.Opcion3)</label>
+            </div>
+
+            <div>
+                <input type="radio" id="casitodoslosdias_@Html.DisplayFor(modelItem=> item.CuestionarioID)" name="Opcion_@Html.DisplayFor(modelItem=> item.CuestionarioID)" value="@Html.DisplayFor(ItemModel => item.Opcion4)">
+                <label for="Opcion4">@Html.DisplayFor(ItemModel => item.Opcion4)</label>
+            </div>
+                
+        </div>
+}
+
+        <div class="form-group">
+            <input type="submit" value="Enviar" class="btn btn-primary" />
+        </div>
+     </form>
+</div>

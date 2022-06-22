@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MVCCore_Francis.Models.Cuestionario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pregunta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opcion1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opcion2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opcion3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opcion4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntaje1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntaje2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntaje3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntaje4)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pregunta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opcion1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opcion2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opcion3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opcion4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje4)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CuestionarioID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CuestionarioID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CuestionarioID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
